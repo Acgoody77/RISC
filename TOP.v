@@ -25,15 +25,20 @@ module TOP(
 	input	Z_top,
 	input BrA_top,
 	input RAA_top,
-	input RC_1_top,
-	output MUX_C_out
+	input PC_1_top,
+	output [9:0]MUX_C_out
     );
 
-reg mux_c_select = 
+reg [1:0]mux_c_select = {BS_one, (BS_zero & (BS_one | (PS_top ^ Z_top)))};
 	 
 always @(*)
 begin
-	
+	case(mux_c_select)
+		0: MUX_C_out <= PC_1_top;
+		1: MUX_C_out <= BrA_top;
+		2: MUX_C_out <= RAA_top;
+		3: MUX_C_out <= BrA_top;
+	endcase
 end
 
 
