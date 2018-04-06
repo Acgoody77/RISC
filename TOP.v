@@ -22,10 +22,10 @@ module TOP(
 	input BS_one,
 	input BS_zero,
 	input PS_top,
-	input	Z_top,
-	input BrA_top,
-	input RAA_top,
-	input PC_1_top,
+	input Z_top,
+	input [9:0]BrA_top,
+	input [9:0]RAA_top,
+	input [9:0]PC_1_top,
 	output [9:0]MUX_C_out
     );
 
