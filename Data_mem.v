@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Data_mem(
+odule Data_mem(
 	input Address,
 	input Data_in,
 	input Write,
