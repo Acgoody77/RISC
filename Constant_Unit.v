@@ -23,23 +23,26 @@ module Constant_Unit(
 	input 		 CS,
 	output [31:0]SEorZF
     );
-	 
+
+reg [31:0]SEorZF_reg;
+assign SEorZF = SEorZF_reg;
+
 always @(*)
 	begin
 		if(CS == 1)
 			begin
 				if(IM[14] == 1)
 					begin
-						SEorZF <= {15'b111111111111111, IM};
+						SEorZF_reg <= {17'b11111111111111111, IM};
 					end
 				if(IM[14] == 0)
 					begin
-						SEorZF <= {15'b000000000000000, IM};
+						SEorZF_reg <= {17'b00000000000000000, IM};
 					end
 			end
 		if(CS == 0)
 			begin
-				SEorZF <= {15'b000000000000000, IM};
+				SEorZF_reg <= {17'b00000000000000000, IM};
 			end
 	end
 

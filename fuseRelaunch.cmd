@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/agoody77/school/microprocarch/RISC/RISC/Constant_Unit_tb_isim_beh.exe" -prj "/home/agoody77/school/microprocarch/RISC/RISC/Constant_Unit_tb_beh.prj" "work.Constant_Unit_tb" "work.glbl" 
