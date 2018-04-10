@@ -23,10 +23,12 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Constant_Unit_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Constant_Unit_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Constant_Unit_tb_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Constant_Unit_tb_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Constant_Unit_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Instruction_decoder_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Instruction_decoder_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Instruction_decoder_tb_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Instruction_decoder_tb_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MUXA_B_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="MUXA_B_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MUXA_B_tb_stx_beh.prj"/>
@@ -46,7 +48,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1523385728" xil_pn:in_ck="-1558148644966502104" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1523385728">
+    <transform xil_pn:end_ts="1523394747" xil_pn:in_ck="-716947493725643080" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1523394747">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="Constant_Unit.v"/>
@@ -55,6 +57,7 @@
       <outfile xil_pn:name="EX.v"/>
       <outfile xil_pn:name="IF.v"/>
       <outfile xil_pn:name="Instruction_decoder.v"/>
+      <outfile xil_pn:name="Instruction_decoder_tb.v"/>
       <outfile xil_pn:name="MUXA_B.v"/>
       <outfile xil_pn:name="MUXA_B_tb.v"/>
       <outfile xil_pn:name="Mod_Function_unit.v"/>
@@ -69,11 +72,11 @@
       <outfile xil_pn:name="regfile.v"/>
       <outfile xil_pn:name="replicator.v"/>
     </transform>
-    <transform xil_pn:end_ts="1523384508" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-4667463649260122027" xil_pn:start_ts="1523384508">
+    <transform xil_pn:end_ts="1523392154" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="6714768322139140611" xil_pn:start_ts="1523392154">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1523384508" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="1747152455624491507" xil_pn:start_ts="1523384508">
+    <transform xil_pn:end_ts="1523392154" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="9061655770713413793" xil_pn:start_ts="1523392154">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -81,19 +84,16 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1523385580" xil_pn:in_ck="-1558148644966502104" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1523385580">
+    <transform xil_pn:end_ts="1523394751" xil_pn:in_ck="-716947493725643080" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1523394751">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Constant_Unit.v"/>
       <outfile xil_pn:name="Constant_Unit_tb.v"/>
       <outfile xil_pn:name="DOF.v"/>
       <outfile xil_pn:name="EX.v"/>
       <outfile xil_pn:name="IF.v"/>
       <outfile xil_pn:name="Instruction_decoder.v"/>
+      <outfile xil_pn:name="Instruction_decoder_tb.v"/>
       <outfile xil_pn:name="MUXA_B.v"/>
       <outfile xil_pn:name="MUXA_B_tb.v"/>
       <outfile xil_pn:name="Mod_Function_unit.v"/>
@@ -108,28 +108,22 @@
       <outfile xil_pn:name="regfile.v"/>
       <outfile xil_pn:name="replicator.v"/>
     </transform>
-    <transform xil_pn:end_ts="1523385581" xil_pn:in_ck="-1558148644966502104" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-151576490883107911" xil_pn:start_ts="1523385580">
+    <transform xil_pn:end_ts="1523394753" xil_pn:in_ck="-716947493725643080" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="8116337235512177749" xil_pn:start_ts="1523394751">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="Constant_Unit_tb_beh.prj"/>
-      <outfile xil_pn:name="Constant_Unit_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="Instruction_decoder_tb_beh.prj"/>
+      <outfile xil_pn:name="Instruction_decoder_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1523385581" xil_pn:in_ck="7881095517784775204" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="4696928121560782716" xil_pn:start_ts="1523385581">
+    <transform xil_pn:end_ts="1523394753" xil_pn:in_ck="8200902206403017759" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6659111791842645016" xil_pn:start_ts="1523394753">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="Constant_Unit_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="Instruction_decoder_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
     </transform>

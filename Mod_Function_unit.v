@@ -33,49 +33,58 @@ module Mod_Function_unit(
     );
 //import params
 
+reg Z_out_reg;
+reg C_out_reg;
+reg N_out_reg;
+reg V_out_reg;
+reg [31:0]F_reg;
+
+assign Z_out = Z_out_reg;
+assign C_out = C_out_reg;
+assign N_out = N_out_reg;
+assign V_out = V_out_reg;
+assign F = F_reg;
+
 initial
 	begin
-		Z_out <= 0;
-		C_out <= 0;
-		N_out <= 0;
-		V_out <= 0;
-		F     <= 10'b0000000000;
+		Z_out_reg <= 0;
+		C_out_reg <= 0;
+		N_out_reg <= 0;
+		V_out_reg <= 0;
+		F_reg     <= 32'h00000000;
 	end
 	
 always @(*)
 	begin
 		if(RESET)
 			begin
-				Z_out <= 0;
-				C_out <= 0;
-				N_out <= 0;
-				V_out <= 0;
-				F     <= 10'b0000000000;
+				Z_out_reg <= 0;
+				C_out_reg <= 0;
+				N_out_reg <= 0;
+				V_out_reg <= 0;
+				F_reg     <= 32'h00000000;
 			end
-			/*
+			
 		case(FS)
 			5'b00010:
+				begin
+					F_reg <= A + B;
+				end
 			5'b00101:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
-			5'b00010:
+				begin
+					F_reg <= 
+				end
+			5'b00000:
+				begin
+				
+				end
+			5'b00000:
+				begin
+				
+				end
+
 		endcase
-		*/
+		
 	end
 
 endmodule

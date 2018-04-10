@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    15:02:14 03/27/2018 
+// Create DA_regte:    15:02:14 03/27/2018 
 // Design Name: 
 // Module Name:    Instruction_decoder 
 // Project Name: 
@@ -37,426 +37,453 @@ module Instruction_decoder(
     );
 `include "PATT.INC"
 
+reg 		 RW_reg;
+reg [4:0] DA_reg;
+reg [1:0] MD_reg;
+reg [1:0] BS_reg;
+reg       PS_reg;
+reg       MW_reg;
+reg [4:0] FS_reg;
+reg       MA_reg;
+reg 		 MB_reg;
+reg [4:0] AA_reg;
+reg [4:0] BA_reg;
+reg 		 CS_reg;
 
 reg [6:0]opcode;
 reg [4:0]DR;
 reg [4:0]SA;
 reg [4:0]SB;
 reg [14:0]immediate;
-reg [14:0]TargetOffset;
-assign opcode = IR_instruction[31:25];
-assign DR = IR_instruction[24:20];
-assign SA = IR_instruction[19:15];
-assign SB = IR_instruction[14:10];
+reg [14:0]TargetOfFS_reget;
+
+assign RW = RW_reg;
+assign DA = DA_reg;
+assign MD = MD_reg;
+assign BS = BS_reg;
+assign PS = PS_reg;
+assign MW = MW_reg;
+assign FS = FS_reg;
+assign MA = MA_reg;
+assign MB = MB_reg;
+assign AA = AA_reg;
+assign BA = BA_reg;
+assign CS = CS_reg;
 
 initial
 	begin
-		RW <= 0;
-		MD <= 2'b00;
-		BS	<= 2'b00;
-		PS	<= 0;
-		MW	<= 0;
-		FS	<= 5'b00000;
-		MA	<= 0;
-		MB	<= 0;
-		AA	<= 5'b00000;
-		BA	<= 5'b00000;
-		DA <= 5'b00000;
-		CS	<= 0;
+		RW_reg   <= 0;
+		MD_reg   <= 2'b00;
+		BS_reg	<= 2'b00;
+		PS_reg	<= 0;
+		MW_reg	<= 0;
+		FS_reg	<= 5'b00000;
+		MA_reg	<= 0;
+		MB_reg	<= 0;
+		AA_reg	<= 5'b00000;
+		BA_reg	<= 5'b00000;
+		DA_reg   <= 5'b00000;
+		CS_reg	<= 0;
 	end
 
 always@(*)
 	begin
+		opcode = IR_instruction[31:25];
+		DR = IR_instruction[24:20];
+		SA = IR_instruction[19:15];
+		SB = IR_instruction[14:10];
+		
+		
 		if(RESET)
 			begin
-				RW <= 0;
-				MD <= 2'bxx;
-				BS	<= 2'b00;
-				PS	<= x;
-				MW	<= 0;
-				FS	<= 5'bxxxxx;
-				MB	<= x;
-				MA	<= x;
-				CS	<= x;
-				AA	<= 5'b00000;
-				BA	<= 5'b00000;
-				DA <= 5'b00000;
+				RW_reg   <= 0;
+				MD_reg   <= 2'b00;
+				BS_reg	<= 2'b00;
+				PS_reg	<= 0;
+				MW_reg	<= 0;
+				FS_reg	<= 5'b00000;
+				MB_reg	<= 0;
+				MA_reg	<= 0;
+				CS_reg	<= 0;
+				AA_reg	<= 5'b00000;
+				BA_reg	<= 5'b00000;
+				DA_reg   <= 5'b00000;
 			end
-		case(opcode)
+		casex(opcode)
 				NOP:
 					begin
-						RW <= 0;
-						MD <= 2'bxx;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'bxxxxx;
-						MB	<= x;
-						MA	<= x;
-						CS	<= x;
-						AA	<= 4'b0000;
-						BA	<= 4'b0000;
-						DA  <= 4'b0000;
+						RW_reg <= 0;
+						MD_reg <= 2'bxx;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'bxxxxx;
+						MB_reg	<= 1'bx;
+						MA_reg	<= 1'bx;
+						CS_reg	<= 1'bx;
+						AA_reg	<= 5'b00000;
+						BA_reg	<= 5'b00000;
+						DA_reg <= 5'b00000;
 					end
 				ADD:
 					begin
-						RW <= 1;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b00010;
-						MB	<= 0;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00010;
+						MB_reg	<= 0;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				SUB:
 					begin
-						RW <= 1;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b00101;
-						MB	<= 0;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00101;
+						MB_reg	<= 0;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				SLT:
 					begin
-						RW <= 1;
-						MD <= 2'b10;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b00101;
-						MB	<= 0;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b10;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00101;
+						MB_reg	<= 0;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				AND:
 					begin
-						RW <= 1;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b01000;
-						MB	<= 0;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b01000;
+						MB_reg	<= 0;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				OR:
 					begin
-						RW <= 1;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b01010;
-						MB	<= 0;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b01010;
+						MB_reg	<= 0;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				XOR:
 					begin
-						RW <= 1;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b01100;
-						MB	<= 0;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b01100;
+						MB_reg	<= 0;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				ST:
 					begin
-						RW <= 0;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 1;
-						FS	<= 5'bxxxxx;
-						MB	<= 0;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 0;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 1;
+						FS_reg	<= 5'bxxxxx;
+						MB_reg	<= 0;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				LOD:
 					begin
-						RW <= 1;
-						MD <= 2'b01;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'bxxxxx;
-						MB	<= x;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b01;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'bxxxxx;
+						MB_reg	<= 1'bx;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				ADI:
 					begin
-						RW <= 1;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b00010;
-						MB	<= 1;
-						MA	<= 0;
-						CS	<= 1;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00010;
+						MB_reg	<= 1;
+						MA_reg	<= 0;
+						CS_reg	<= 1;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				SBI:
 					begin
-						RW <= 1;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b00101;
-						MB	<= 1;
-						MA	<= 0;
-						CS	<= 1;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00101;
+						MB_reg	<= 1;
+						MA_reg	<= 0;
+						CS_reg	<= 1;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				NOT:
 					begin
-						RW <= 1;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b01110;
-						MB	<= x;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b01110;
+						MB_reg	<= 1'bx;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				ANI:
 					begin
-						RW <= 1;
-						MD <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b01000;
-						MB	<= 1;
-						MA	<= 0;
-						CS	<= 0;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg <= 1;
+						MD_reg <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b01000;
+						MB_reg	<= 1;
+						MA_reg	<= 0;
+						CS_reg	<= 0;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				ORI:
 					begin
-						RW  <= 1;
-						MD  <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b01010;
-						MB	<= 1;
-						MA	<= 0;
-						CS	<= 0;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 1;
+						MD_reg  <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b01010;
+						MB_reg	<= 1;
+						MA_reg	<= 0;
+						CS_reg	<= 0;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				XRI:
 					begin
-						RW  <= 1;
-						MD  <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b01100;
-						MB	<= 1;
-						MA	<= 0;
-						CS	<= 0;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 1;
+						MD_reg  <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b01100;
+						MB_reg	<= 1;
+						MA_reg	<= 0;
+						CS_reg	<= 0;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				AIU:
 					begin
-						RW  <= 1;
-						MD  <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b00010;
-						MB	<= 1;
-						MA	<= 0;
-						CS	<= 0;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 1;
+						MD_reg  <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00010;
+						MB_reg	<= 1;
+						MA_reg	<= 0;
+						CS_reg	<= 0;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				SIU:
 					begin
-						RW  <= 1;
-						MD  <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b00101;
-						MB	<= 1;
-						MA	<= 0;
-						CS	<= 0;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 1;
+						MD_reg  <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00101;
+						MB_reg	<= 1;
+						MA_reg	<= 0;
+						CS_reg	<= 0;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				MOV:
 					begin
-						RW  <= 1;
-						MD  <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b00000;
-						MB	<= x;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 1;
+						MD_reg  <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00000;
+						MB_reg	<= 1'bx;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				LSL:
 					begin
-						RW  <= 1;
-						MD  <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b10000;
-						MB	<= x;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 1;
+						MD_reg  <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b10000;
+						MB_reg	<= 1'bx;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				LSR:
 					begin
-						RW  <= 1;
-						MD  <= 2'b00;
-						BS	<= 2'b00;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b10001;
-						MB	<= x;
-						MA	<= 0;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 1;
+						MD_reg  <= 2'b00;
+						BS_reg	<= 2'b00;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b10001;
+						MB_reg	<= 1'bx;
+						MA_reg	<= 0;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				JMR:
 					begin
-						RW  <= 0;
-						MD  <= 2'bxx;
-						BS	<= 2'b10;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'bxxxxx;
-						MB	<= x;
-						MA	<= x;
-						CS	<= x;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 0;
+						MD_reg  <= 2'bxx;
+						BS_reg	<= 2'b10;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'bxxxxx;
+						MB_reg	<= 1'bx;
+						MA_reg	<= 1'bx;
+						CS_reg	<= 1'bx;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				BZ:
 					begin
-						RW  <= 0;
-						MD  <= 2'bxx;
-						BS	<= 2'b01;
-						PS	<= 0;
-						MW	<= 0;
-						FS	<= 5'b00000;
-						MB	<= 1;
-						MA	<= 0;
-						CS	<= 1;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 0;
+						MD_reg  <= 2'bxx;
+						BS_reg	<= 2'b01;
+						PS_reg	<= 0;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00000;
+						MB_reg	<= 1;
+						MA_reg	<= 0;
+						CS_reg	<= 1;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				BNZ:
 					begin
-						RW  <= 0;
-						MD  <= 2'bxx;
-						BS	<= 2'b01;
-						PS	<= 1;
-						MW	<= 0;
-						FS	<= 5'b00000;
-						MB	<= 1;
-						MA	<= 0;
-						CS	<= 1;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 0;
+						MD_reg  <= 2'bxx;
+						BS_reg	<= 2'b01;
+						PS_reg	<= 1;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00000;
+						MB_reg	<= 1;
+						MA_reg	<= 0;
+						CS_reg	<= 1;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				JMP:
 					begin
-						RW  <= 0;
-						MD  <= 2'bxx;
-						BS	<= 2'b11;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'bxxxxx;
-						MB	<= 1;
-						MA	<= x;
-						CS	<= 1;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 0;
+						MD_reg  <= 2'bxx;
+						BS_reg	<= 2'b11;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'bxxxxx;
+						MB_reg	<= 1;
+						MA_reg	<= 1'bx;
+						CS_reg	<= 1;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 				JML:
 					begin
-						RW  <= 1;
-						MD  <= 2'b00;
-						BS	<= 2'b11;
-						PS	<= x;
-						MW	<= 0;
-						FS	<= 5'b00111;
-						MB	<= 1;
-						MA	<= 1;
-						CS	<= 1;
-						AA	<= SA;
-						BA	<= SB;
-						DA  <= DR;
+						RW_reg  <= 1;
+						MD_reg  <= 2'b00;
+						BS_reg	<= 2'b11;
+						PS_reg	<= 1'bx;
+						MW_reg	<= 0;
+						FS_reg	<= 5'b00111;
+						MB_reg	<= 1;
+						MA_reg	<= 1;
+						CS_reg	<= 1;
+						AA_reg	<= SA;
+						BA_reg	<= SB;
+						DA_reg  <= DR;
 					end
 		endcase
 		
