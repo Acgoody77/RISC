@@ -28,10 +28,11 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DOF_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="DOF_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DOF_tb_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="EX_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="EX_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="EX_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="EX_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="EX_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="EX_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="EX_tb_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="EX_tb_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="IF_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="IF_tb_isim_beh.exe"/>
@@ -60,7 +61,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1523401552" xil_pn:in_ck="-7869534962705650491" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1523401552">
+    <transform xil_pn:end_ts="1523402777" xil_pn:in_ck="-7869534962705650491" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1523402777">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="Constant_Unit.v"/>
@@ -88,12 +89,12 @@
       <outfile xil_pn:name="regfile.v"/>
       <outfile xil_pn:name="replicator.v"/>
     </transform>
-    <transform xil_pn:end_ts="1523400424" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-7893301818735087980" xil_pn:start_ts="1523400424">
+    <transform xil_pn:end_ts="1523402614" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="2584027069917171497" xil_pn:start_ts="1523402614">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForProperties"/>
     </transform>
-    <transform xil_pn:end_ts="1523400424" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="557785949344347826" xil_pn:start_ts="1523400424">
+    <transform xil_pn:end_ts="1523402614" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2018100780232433977" xil_pn:start_ts="1523402614">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForProperties"/>
@@ -102,20 +103,16 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1523400268" xil_pn:in_ck="8304324390401820335" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1523400268">
+    <transform xil_pn:end_ts="1523402779" xil_pn:in_ck="-7869534962705650491" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1523402779">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Constant_Unit.v"/>
       <outfile xil_pn:name="Constant_Unit_tb.v"/>
       <outfile xil_pn:name="DOF.v"/>
       <outfile xil_pn:name="DOF_tb.v"/>
       <outfile xil_pn:name="EX.v"/>
+      <outfile xil_pn:name="EX_tb.v"/>
       <outfile xil_pn:name="IF.v"/>
       <outfile xil_pn:name="IF_tb.v"/>
       <outfile xil_pn:name="Instruction_decoder.v"/>
@@ -135,30 +132,28 @@
       <outfile xil_pn:name="regfile.v"/>
       <outfile xil_pn:name="replicator.v"/>
     </transform>
-    <transform xil_pn:end_ts="1523400426" xil_pn:in_ck="8304324390401820335" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-5370896921374259049" xil_pn:start_ts="1523400424">
+    <transform xil_pn:end_ts="1523402781" xil_pn:in_ck="-7869534962705650491" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-5328516552467221471" xil_pn:start_ts="1523402779">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="EX_beh.prj"/>
-      <outfile xil_pn:name="EX_isim_beh.exe"/>
+      <outfile xil_pn:name="EX_tb_beh.prj"/>
+      <outfile xil_pn:name="EX_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1523400426" xil_pn:in_ck="-4247180068290313085" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6608939983637812602" xil_pn:start_ts="1523400426">
+    <transform xil_pn:end_ts="1523402781" xil_pn:in_ck="8097591487098712772" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2778379563353485252" xil_pn:start_ts="1523402781">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="EX_isim_beh.wdb"/>
+      <outfile xil_pn:name="EX_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
     </transform>

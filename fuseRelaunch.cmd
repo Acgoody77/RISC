@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/agoody77/school/microprocarch/RISC/RISC/EX_isim_beh.exe" -prj "/home/agoody77/school/microprocarch/RISC/RISC/EX_beh.prj" "work.EX" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/agoody77/school/microprocarch/RISC/RISC/EX_tb_isim_beh.exe" -prj "/home/agoody77/school/microprocarch/RISC/RISC/EX_tb_beh.prj" "work.EX_tb" "work.glbl" 

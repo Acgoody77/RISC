@@ -60,7 +60,7 @@ EX uut(
 	.RW(RW),
 	.DA(DA),
 	.MD(MD),
-	.BS(VS),
+	.BS(BS),
 	.PS(PS),
 	.MW(MW),
 	.FS(FS),
@@ -84,5 +84,69 @@ EX uut(
 	.F(F),
 	.Data_Out(Data_Out)	
 );
+
+initial
+	begin
+		CLOCK = 0;
+		RESET = 0;
+		PC_M2 = 32'h00000001;
+		RW = 0;
+		DA = 4'b0000;
+		MD = 2'b00;
+		BS = 2'b00;
+		PS = 0;
+		MW = 0;
+		FS = 5'b00000;
+		SH = 5'b00000;
+		BUS_A = 32'h00000008;
+		BUS_B = 32'h00000008;
+		
+		#10
+		FS = 5'b00010;
+		SH = 5'b0100;
+		
+				
+		#10
+		FS = 5'b00101;
+		
+		
+		#10
+		FS = 5'b01000;
+		
+		
+		#10
+		FS = 5'b01010;
+		
+		
+		#10
+		FS = 5'b01100;
+		
+		
+		#10
+		FS = 5'b01110;
+		
+		
+		#10
+		FS = 5'b00000;
+		
+		
+		#10
+		FS = 5'b10000;
+		
+		
+		#10
+		FS = 5'b10001;
+		
+		
+		#10
+		FS = 5'b00111;
+		
+		
+	end
+	
+always
+	begin
+		CLOCK = ~CLOCK;
+	end
 	
 endmodule
