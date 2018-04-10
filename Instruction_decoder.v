@@ -59,15 +59,15 @@ initial
 		FS	<= 5'b00000;
 		MA	<= 0;
 		MB	<= 0;
-		AA	<= 4'b0000;
-		BA	<= 4'b0000;
-		DA <= 4'b0000;
+		AA	<= 5'b00000;
+		BA	<= 5'b00000;
+		DA <= 5'b00000;
 		CS	<= 0;
 	end
 
 always@(*)
 	begin
-		if(RESET):
+		if(RESET)
 			begin
 				RW <= 0;
 				MD <= 2'bxx;
@@ -78,9 +78,9 @@ always@(*)
 				MB	<= x;
 				MA	<= x;
 				CS	<= x;
-				AA	<= 4'b0000;
-				BA	<= 4'b0000;
-				DA  <= 4'b0000;
+				AA	<= 5'b00000;
+				BA	<= 5'b00000;
+				DA <= 5'b00000;
 			end
 		case(opcode)
 				NOP:
