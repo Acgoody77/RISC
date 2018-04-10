@@ -21,8 +21,38 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="RISC.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MUXA_B_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="RISC_CPU_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+  </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1523372823" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1523372823">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1523372957" xil_pn:in_ck="7918714519298585989" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1523372957">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Constant_Unit.v"/>
+      <outfile xil_pn:name="DOF.v"/>
+      <outfile xil_pn:name="EX.v"/>
+      <outfile xil_pn:name="IF.v"/>
+      <outfile xil_pn:name="Instruction_decoder.v"/>
+      <outfile xil_pn:name="MUXA_B.v"/>
+      <outfile xil_pn:name="Mod_Function_unit.v"/>
+      <outfile xil_pn:name="PATT.INC"/>
+      <outfile xil_pn:name="PROG.INC"/>
+      <outfile xil_pn:name="RISC_CPU.v"/>
+      <outfile xil_pn:name="TOP.v"/>
+      <outfile xil_pn:name="WB.v"/>
+      <outfile xil_pn:name="memDATA.v"/>
+      <outfile xil_pn:name="memPROG.v"/>
+      <outfile xil_pn:name="regfile.v"/>
+      <outfile xil_pn:name="replicator.v"/>
+    </transform>
+  </transforms>
 
 </generated_project>

@@ -29,24 +29,31 @@ module MUXA_B(
 	output[31:0] BUS_B
     );
 
+reg [31:0]BUS_A_reg;
+reg [31:0]BUS_B_reg;
+
+assign BUS_A = BUS_A_reg;
+assign BUS_B = BUS_B_reg;
+
+
 always @(*)
 	begin
 		if(MA == 1)
 			begin
-				BUS_A <= PC_M1;
+				BUS_A_reg <= PC_M1;
 			end
 		if(MA == 0)
 			begin
-				BUS_A <= A_DATA;
+				BUS_A_reg <= A_DATA;
 			end
 			
 		if(MB == 1)
 			begin
-				BUS_B <= SEorZF;
+				BUS_B_reg <= SEorZF;
 			end
 		if(MB == 0)
 			begin
-				BUS_B <= B_DATA;
+				BUS_B_reg <= B_DATA;
 			end
 	end
 
