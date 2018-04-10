@@ -23,10 +23,10 @@ module TOP(
 	input BS_zero,
 	input PS_top,
 	input Z_top,
-	input [9:0]BrA_top,
-	input [9:0]RAA_top,
-	input [9:0]PC_1_top,
-	output [9:0]MUX_C_out
+	input [31:0]BrA_top,
+	input [31:0]RAA_top,
+	input [31:0]PC_1_top,
+	output [31:0]MUX_C_out
     );
 
 reg [1:0]mux_c_select = {BS_one, (BS_zero & (BS_one | (PS_top ^ Z_top)))};

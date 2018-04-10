@@ -20,15 +20,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 module Mod_Function_unit(
 	input RESET,
-	input [9:0]A,
-	input [9:0]B,
+	input [31:0]A,
+	input [31:0]B,
 	input [4:0]SH,
 	input [4:0]FS,
 	output Z_out,
 	output C_out,
 	output N_out,
 	output V_out,
-	output [9:0]F
+	output [31:0]F
     );
 //import params
 

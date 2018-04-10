@@ -21,10 +21,10 @@
 module regfile(
     input clock,
     input reset,
-	 input WE,
-    input [3:0] Asel,
-    input [3:0] Bsel,
-    input [3:0] Dsel,
+	input RW,
+    input [4:0] Asel,
+    input [4:0] Bsel,
+    input [4:0] Dsel,
     input [31:0] DIN,
     output [31:0] AOUT,
     output [31:0] BOUT
@@ -48,9 +48,5 @@ always @(posedge clock)
 				data [counter] <= 0;									// clear all regs on reset
 		else if(WE)														// if not clearing, then write
 			data[Dsel] <= DIN;		
-	end
-always @ (*)
-	begin
-		AOUT <= data[
 	end
 endmodule

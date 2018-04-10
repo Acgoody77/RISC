@@ -23,7 +23,7 @@ module instruction_mem(
     output [31:0] dataout
     );
 
-`include "PATT.INC"										// parameter macros for ASSY instructions
+`include "PROG.INC"										// parameter macros for ASSY instructions
 
 integer i;
 
