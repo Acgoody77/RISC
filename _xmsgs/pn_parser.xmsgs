@@ -8,40 +8,10 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/agoody77/school/microprocarch/RISC/RISC/DOF.v&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/agoody77/school/microprocarch/RISC/RISC/RISC_CPU.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v&quot; into library work</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">57</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">59</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">61</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">63</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">65</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">67</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">69</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">71</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">73</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/Mod_Function_unit.v</arg>&quot; Line <arg fmt="%d" index="2">75</arg>. <arg fmt="%s" index="3">Syntax error near &quot;:&quot;.</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/agoody77/school/microprocarch/RISC/RISC/RISC_CPU.v</arg>&quot; Line <arg fmt="%d" index="2">24</arg>. <arg fmt="%s" index="3">Syntax error near &quot;)&quot;.</arg>
 </msg>
 
 </messages>

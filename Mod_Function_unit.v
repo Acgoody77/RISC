@@ -18,6 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
 module Mod_Function_unit(
 	input RESET,
 	input [31:0]A,
@@ -51,7 +52,7 @@ always @(*)
 				V_out <= 0;
 				F     <= 10'b0000000000;
 			end
-			
+			/*
 		case(FS)
 			5'b00010:
 			5'b00101:
@@ -74,6 +75,7 @@ always @(*)
 			5'b00010:
 			5'b00010:
 		endcase
+		*/
 	end
 
 endmodule
