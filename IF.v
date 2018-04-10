@@ -33,7 +33,7 @@ always @(negedge CLOCK)
 		pc_clocked <= PC;
 	end
 	 
-instruction_decoder instruction_mem(
+memPROG instruction_mem(
 	.PC(pc_clocked),
 	.dataout(IR)
 	

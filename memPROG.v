@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module instruction_mem(
+module memPROG(
     input [31:0] PC,
     output [31:0] dataout
     );

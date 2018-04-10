@@ -29,8 +29,7 @@ module WB(
 	input [31:0]Data,
 	output[31:0]BUS_D,
 	output		RW_out,
-	output[4:0] DA_out,
-	output[1:0] MD_out
+	output[4:0] DA_out
 	);
 
 reg 		  RW_clocked;
@@ -42,7 +41,6 @@ reg 		  VxorN_clocked;
 
 assign RW_out = RW_clocked;
 assign DA_out = DA_clocked;
-assign MD_out = MD_clocked;
 
 always @(negedge CLOCK)
 	begin
@@ -56,15 +54,15 @@ always @(negedge CLOCK)
 	
 always @(*)
 	begin
-		if(MD == 0)
+		if(MD_clocked == 0)
 			begin
 				BUS_D <= F_clocked;
 			end
-		if(MD == 1)
+		if(MD_clocked == 1)
 			begin
 				BUS_D <= Data_clocked;
 			end
-		if(MD == 2)
+		if(MD_clocked == 2)
 			begin
 				BUS_D <= {31'b0000000000000000000000000000000, VxorN};
 			end

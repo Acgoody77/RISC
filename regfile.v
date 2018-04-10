@@ -21,7 +21,7 @@
 module regfile(
     input clock,
     input reset,
-	input RW,
+	 input RW,
     input [4:0] Asel,
     input [4:0] Bsel,
     input [4:0] Dsel,

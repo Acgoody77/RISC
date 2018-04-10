@@ -36,7 +36,8 @@ module DOF(
 	output      PS,
 	output      MW,
 	output[4:0] FS,
-	output[4:0] SH
+	output[4:0] SH,
+	output[31:0]PC_M2
     );
 
 reg [31:0] PC_M1_clocked;
@@ -52,6 +53,7 @@ always @(negedge CLOCK)
 
 assign SH = IR[4:0];
 assign IM = IR[14:0];
+assign PC_M2 = PC_M1_clocked;
 
 wire CS_wire;
 wire MA_wire;
