@@ -30,16 +30,16 @@ integer i;
 reg [31:0] memword [255:0];
 initial
   begin
-    memword[0] = PATT0;									// these represent the ASSY guy's instructions
-    memword[1] = PATT0;									// ADD R3, R2, R1
-    memword[2] = PATT0;									// ADD R4, R3, R2
-    memword[3] = PATT0;									// ADD R5, R4, R3
-    memword[4] = PATT0;
-    memword[5] = PATT0;
-    memword[6] = PATT0;
-    memword[7] = PATT0;
+    memword[0] = PROG0;									// these represent the ASSY guy's instructions
+    memword[1] = PROG1;									// ADD R3, R2, R1
+    memword[2] = PROG2;									// ADD R4, R3, R2
+    memword[3] = PROG3;									// ADD R5, R4, R3
+    memword[4] = PROG4;
+    memword[5] = PROG5;
+    memword[6] = PROG6;
+    memword[7] = PROG7;
 	 for(i=8; i< 256; i = i+1)
-		memword[i] = PATTX;
+		memword[i] = PROGX;
   end
 
 

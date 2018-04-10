@@ -39,11 +39,16 @@ reg N_out_reg;
 reg V_out_reg;
 reg [31:0]F_reg;
 
+reg [32:0]test;
+wire [8:0]out_carry;
+
 assign Z_out = Z_out_reg;
-assign C_out = C_out_reg;
 assign N_out = N_out_reg;
 assign V_out = V_out_reg;
 assign F = F_reg;
+
+assign out_carry = {1'b0, A} + {1'b0, B};
+assign C_out = out_carry[8];
 
 initial
 	begin
@@ -64,23 +69,65 @@ always @(*)
 				V_out_reg <= 0;
 				F_reg     <= 32'h00000000;
 			end
+		test = A - B;
+		if(test[32] == 1)
+			begin
+				N_out_reg <= 1;
+			end
+		if(test[32] == 0)
+			begin
+				N_out_reg <= 0;
+			end
+		if(test == 0)
+			begin
+				Z_out_reg <= 0;
+			end
+		if(test < 0)
+			begin
+				V_out_reg <= 1;
+			end
+			
 			
 		case(FS)
+			5'b00000:
+				begin
+					F_reg <= A;
+				end
 			5'b00010:
 				begin
 					F_reg <= A + B;
 				end
 			5'b00101:
 				begin
-					F_reg <= 
+					F_reg <= A - B;
 				end
-			5'b00000:
+			5'b01000:
 				begin
-				
+					F_reg <= A & B;
 				end
-			5'b00000:
+			5'b01010:
 				begin
-				
+					F_reg <= A | B;
+				end
+			5'b01100:
+				begin
+					F_reg <= A ^ B;
+				end
+			5'b01110:
+				begin
+					F_reg <= ~A;  
+				end
+			5'b10000:
+				begin
+					F_reg <= A << SH;
+				end
+			5'b10001:
+				begin
+					F_reg <= A >> SH;
+				end
+			5'b00111:
+				begin
+					F_reg <= A; 
 				end
 
 		endcase

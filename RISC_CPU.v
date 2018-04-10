@@ -127,7 +127,7 @@ EX ex(
 	.PS(PS_dof_wire),//from dof
 	.MW(MW_wire),//from dof
 	.FS(FS_wire),//from dof
-	.SH(Sh_wire),//from dof
+	.SH(SH_wire),//from dof
 	.BUS_A(BUS_A_wire),//from dof
 	.BUS_B(BUS_B_wire),//from dof
 	//OUTPUT

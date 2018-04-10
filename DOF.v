@@ -44,6 +44,33 @@ reg [31:0] PC_M1_clocked;
 reg [31:0] IR_clocked;
 reg [14:0] IM;
 
+reg[31:0]BUS_A_reg;
+reg[31:0]BUS_B_reg;
+reg[4:0] AA_reg;
+reg[4:0] BA_reg;
+reg 		RW_reg;
+reg[4:0] DA_reg;
+reg[1:0] MD_reg;
+reg[1:0] BS_reg;
+reg      PS_reg;
+reg      MW_reg;
+reg[4:0] FS_reg;
+reg[4:0] SH_reg;
+reg[31:0]PC_M2_reg;
+
+assign BUS_A = BUS_A_reg;
+assign BUS_B = BUS_B_reg;
+assign AA = AA_reg;
+assign BA = BA_reg;
+assign RW = RW_reg;
+assign DA = DA_reg;
+assign MD = MD_reg;
+assign BS = BS_reg;
+assign PS = PS_reg;
+assign MW = MW_reg;
+assign FS = FS_reg;
+assign SH = SH_reg;
+assign PC_M2 = PC_M2_reg;
 
 always @(negedge CLOCK)
 	begin
@@ -51,9 +78,13 @@ always @(negedge CLOCK)
 		IR_clocked    <= IR;
 	end
 
-assign SH = IR[4:0];
-assign IM = IR[14:0];
-assign PC_M2 = PC_M1_clocked;
+always @(*)
+	begin
+		SH_reg = IR[4:0];
+		IM = IR[14:0];
+		PC_M2_reg = PC_M1_clocked;
+	end
+
 
 wire CS_wire;
 wire MA_wire;
@@ -63,17 +94,17 @@ wire SEorZF_wire;
 Instruction_decoder instruction_dec(
 	.RESET(RESET),
 	.IR_instruction(IR_clocked),
-	.RW(RW),//out
-	.DA(DA),//out
-	.MD(MD),//out
-	.BS(BS),//out
-	.PS(PS),//out
-	.MW(MW),//out
-	.FS(FS),//out
+	.RW(RW_reg),//out
+	.DA(DA_reg),//out
+	.MD(MD_reg),//out
+	.BS(BS_reg),//out
+	.PS(PS_reg),//out
+	.MW(MW_reg),//out
+	.FS(FS_reg),//out
 	.MA(MA_wire),
 	.MB(MB_wire),
-	.AA(AA),//out to registerfile
-	.BA(BA),//out to registerfile
+	.AA(AA_reg),//out to registerfile
+	.BA(BA_reg),//out to registerfile
 	.CS(CS_wire)
 );
 
@@ -90,8 +121,8 @@ MUXA_B mux_ab(
 	.SEorZF(SEorZF_wire),
 	.MA(MA_wire),
 	.MB(MB_wire),
-	.BUS_A(BUS_A),
-	.BUS_B(BUS_B)
+	.BUS_A(BUS_A_reg),
+	.BUS_B(BUS_B_reg)
 );
 
 

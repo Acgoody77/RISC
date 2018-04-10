@@ -1,0 +1,5 @@
+verilog isim_temp "MUXA_B.v"
+verilog isim_temp "Instruction_decoder.v"
+verilog isim_temp "Constant_Unit.v"
+verilog isim_temp "DOF.v"
+verilog isim_temp "/home/agoody77/XilinxISE/14.7/ISE_DS/ISE//verilog/src/glbl.v"

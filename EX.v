@@ -50,6 +50,38 @@ module EX(
 	
     );
 
+reg[31:0]BrA_reg;
+reg[31:0]RAA_reg;
+reg 		RW_out_reg;
+reg[4:0] DA_out_reg;
+reg[1:0] MD_out_reg;
+reg      BS_one_reg;
+reg 		BS_zero_reg;
+reg PS_out_reg;
+reg Z_reg;
+reg V_reg;
+reg N_reg;
+reg C_reg;
+reg VxorN_reg;
+reg [31:0]F_reg;
+reg [31:0]Data_Out_reg;
+
+assign BrA = BrA;
+assign RAA = RAA_reg;
+assign RW_out = RW_out_reg;
+assign DA_out = DA_out_reg;
+assign MD_out = MD_out_reg;
+assign BS_one = BS_one_reg;
+assign BS_zero = BS_zero_reg;
+assign PS_out = PS_out_reg;
+assign Z = Z_reg;
+assign V = V_reg;
+assign N = N_reg;
+assign C = C_reg;
+assign VxorN = VxorN_reg;
+assign F = F_reg;
+assign Data_Out = Data_Out_reg;
+
 reg [31:0] PC_M2_clocked;
 reg 		  RW_clocked;
 reg [4:0]  DA_clocked;
@@ -62,16 +94,18 @@ reg [4:0]  SH_clocked;
 reg [31:0] BUS_A_clocked;
 reg [31:0] BUS_B_clocked;
 
-assign BrA = PC_M2_clocked + BUS_B_clocked;
-assign RAA = BUS_A_clocked;
-assign VxorN = V ^ N;
-assign BS_one = BS_clocked[1];
-assign BS_zero= BS_clocked[0];
-assign RW_out = RW_clocked;
-assign DA_out = DA_clocked;
-assign MD_out = MD_clocked;
-assign PS_out = PS_clocked;
-
+always @(*)
+	begin
+		 BrA_reg = PC_M2_clocked + BUS_B_clocked;
+		 RAA_reg = BUS_A_clocked;
+		 VxorN_reg = V_reg ^ N_reg;
+		 BS_one_reg = BS_clocked[1];
+		 BS_zero_reg= BS_clocked[0];
+		 RW_out_reg = RW_clocked;
+		 DA_out_reg = DA_clocked;
+		 MD_out_reg = MD_clocked;
+		 PS_out_reg = PS_clocked;
+	end
 always @(negedge CLOCK)
 	begin
 		PC_M2_clocked <= PC_M2;
@@ -93,11 +127,11 @@ Mod_Function_unit MFU(
 	.B(BUS_B_clocked),
 	.SH(SH_clocked),
 	.FS(FS_clocked),
-	.Z_out(Z),
-	.C_out(C),
-	.N_out(N),
-	.V_out(V),
-	.F(F)
+	.Z_out(Z_reg),
+	.C_out(C_reg),
+	.N_out(N_reg),
+	.V_out(V_reg),
+	.F(F_reg)
 );
 		
 memDATA data_mem(
@@ -105,7 +139,7 @@ memDATA data_mem(
 	.addr(BUS_A_clocked),
 	.MW(MW_clocked),
 	.datain(BUS_B_clocked),
-	.dataout(Data_Out)
+	.dataout(Data_Out_reg)
 );
 
 endmodule
