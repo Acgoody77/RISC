@@ -1,21 +1,22 @@
-Running: /home/agoody77/XilinxISE/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o /home/agoody77/school/microprocarch/RISC/RISC/WB_tb_isim_beh.exe -prj /home/agoody77/school/microprocarch/RISC/RISC/WB_tb_beh.prj work.WB_tb work.glbl 
+Running: /home/agoody77/XilinxISE/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o /home/agoody77/school/microprocarch/RISC/RISC/Instruction_decoder_tb_isim_beh.exe -prj /home/agoody77/school/microprocarch/RISC/RISC/Instruction_decoder_tb_beh.prj work.Instruction_decoder_tb work.glbl 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
-Analyzing Verilog file "/home/agoody77/school/microprocarch/RISC/RISC/WB.v" into library work
-Analyzing Verilog file "/home/agoody77/school/microprocarch/RISC/RISC/WB_tb.v" into library work
+Analyzing Verilog file "/home/agoody77/school/microprocarch/RISC/RISC/Instruction_decoder.v" into library work
+Analyzing Verilog file "/home/agoody77/school/microprocarch/RISC/RISC/Instruction_decoder_tb.v" into library work
 Analyzing Verilog file "/home/agoody77/XilinxISE/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 96540 KB
-Fuse CPU Usage: 1080 ms
-Compiling module WB
-Compiling module WB_tb
+Fuse Memory Usage: 96904 KB
+Fuse CPU Usage: 1030 ms
+Compiling module Instruction_decoder
+Compiling module Instruction_decoder_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
 Compiled 3 Verilog Units
-Built simulation executable /home/agoody77/school/microprocarch/RISC/RISC/WB_tb_isim_beh.exe
-Fuse Memory Usage: 1181024 KB
-Fuse CPU Usage: 1100 ms
-GCC CPU Usage: 260 ms
+Built simulation executable /home/agoody77/school/microprocarch/RISC/RISC/Instruction_decoder_tb_isim_beh.exe
+Fuse Memory Usage: 1181572 KB
+Fuse CPU Usage: 1040 ms
+GCC CPU Usage: 410 ms

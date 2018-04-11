@@ -37,6 +37,7 @@ module Instruction_decoder(
     );
 `include "PATT.INC"
 
+
 reg 		 RW_reg;
 reg [4:0] DA_reg;
 reg [1:0] MD_reg;
@@ -109,7 +110,7 @@ always@(*)
 				BA_reg	<= 5'b00000;
 				DA_reg   <= 5'b00000;
 			end
-		casex(opcode)
+		case(opcode)
 				NOP:
 					begin
 						RW_reg <= 0;
