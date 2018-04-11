@@ -1,5 +1,5 @@
 ISim log file
-Running: /home/agoody77/school/microprocarch/RISC/RISC/EX_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/agoody77/school/microprocarch/RISC/RISC/EX_tb_isim_beh.wdb 
+Running: /home/agoody77/school/microprocarch/RISC/RISC/WB_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/agoody77/school/microprocarch/RISC/RISC/WB_tb_isim_beh.wdb 
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -10,5 +10,5 @@ Time resolution is 1 ps
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
-The simulator has terminated in an unexpected manner.  Please review the ISim log (isim.log) for details.
+Finished circuit initialization process.
 # exit 0

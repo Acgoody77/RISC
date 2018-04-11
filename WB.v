@@ -38,9 +38,11 @@ reg [1:0]  MD_clocked;
 reg [31:0] F_clocked;
 reg [31:0] Data_clocked;
 reg 		  VxorN_clocked;
+reg [31:0] BUS_D_reg;
 
 assign RW_out = RW_clocked;
 assign DA_out = DA_clocked;
+assign BUS_D = BUS_D_reg;
 
 always @(negedge CLOCK)
 	begin
@@ -56,15 +58,15 @@ always @(*)
 	begin
 		if(MD_clocked == 0)
 			begin
-				BUS_D <= F_clocked;
+				BUS_D_reg <= F_clocked;
 			end
 		if(MD_clocked == 1)
 			begin
-				BUS_D <= Data_clocked;
+				BUS_D_reg <= Data_clocked;
 			end
 		if(MD_clocked == 2)
 			begin
-				BUS_D <= {31'b0000000000000000000000000000000, VxorN};
+				BUS_D_reg <= {31'b0000000000000000000000000000000, VxorN};
 			end
 	end
 

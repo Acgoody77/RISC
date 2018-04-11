@@ -2,12 +2,12 @@ Command line:
    Mod_Function_unit_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  56213
+     -socket  37579
 
-Tue Apr 10 22:00:48 2018
+Wed Apr 11 11:14:08 2018
 
 
- Elaboration Time: 0.02 sec
+ Elaboration Time: 0.01 sec
 
  Current Memory Usage: 198.111 Meg
 
@@ -21,9 +21,9 @@ Tue Apr 10 22:00:48 2018
  Total Scalar Nets and Variables : 357
 Total Line Count : 150
 
- Total Simulation Time: 0.03 sec
+ Total Simulation Time: 0.02 sec
 
  Current Memory Usage: 273.613 Meg
 
-Tue Apr 10 22:02:40 2018
+Wed Apr 11 11:14:21 2018
 

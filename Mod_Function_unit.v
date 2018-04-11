@@ -34,7 +34,6 @@ module Mod_Function_unit(
 //import params
 
 reg Z_out_reg;
-reg C_out_reg;
 reg N_out_reg;
 reg V_out_reg;
 reg [31:0]F_reg;
@@ -53,7 +52,6 @@ assign C_out = out_carry[8];
 initial
 	begin
 		Z_out_reg <= 0;
-		C_out_reg <= 0;
 		N_out_reg <= 0;
 		V_out_reg <= 0;
 		F_reg     <= 32'h00000000;
@@ -64,7 +62,6 @@ always @(*)
 		if(RESET)
 			begin
 				Z_out_reg <= 0;
-				C_out_reg <= 0;
 				N_out_reg <= 0;
 				V_out_reg <= 0;
 				F_reg     <= 32'h00000000;
@@ -128,6 +125,10 @@ always @(*)
 			5'b00111:
 				begin
 					F_reg <= A; 
+				end
+			default:
+				begin
+					F_reg <= 0;
 				end
 
 		endcase

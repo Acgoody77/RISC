@@ -1,0 +1,10 @@
+Command line:
+   Mod_Function_unit_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  43649
+
+Wed Apr 11 11:43:22 2018
+
+
+ Elaboration Time: 0.01 sec

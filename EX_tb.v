@@ -70,12 +70,12 @@ EX uut(
 	
 	.BrA(BrA),
 	.RAA(RAA),
-	.RW_out(RW),
-	.DA_out(DA),
-	.MD_out(MD),
+	.RW_out(RW_out),
+	.DA_out(DA_out),
+	.MD_out(MD_out),
 	.BS_one(BS_one),
 	.BS_zero(BS_zero),
-	.PS_out(PS),
+	.PS_out(PS_out),
 	.Z(Z),
 	.V(V),
 	.N(N),
@@ -89,6 +89,10 @@ initial
 	begin
 		CLOCK = 0;
 		RESET = 0;
+		#10
+		RESET = 1;
+		#10
+		RESET = 0;
 		PC_M2 = 32'h00000001;
 		RW = 0;
 		DA = 4'b0000;
@@ -100,7 +104,8 @@ initial
 		SH = 5'b00000;
 		BUS_A = 32'h00000008;
 		BUS_B = 32'h00000008;
-		
+
+		#100
 		#10
 		FS = 5'b00010;
 		SH = 5'b0100;
@@ -108,23 +113,26 @@ initial
 				
 		#10
 		FS = 5'b00101;
-		
-		
+		BUS_A = 32'h00000008;
+		BUS_B = 32'h00000FFF;		
+		MW = 1;
 		#10
 		FS = 5'b01000;
 		
 		
 		#10
 		FS = 5'b01010;
-		
-		
+		BUS_A = 32'h00000008;
+		BUS_B = 32'h00000AAA;		
+		MW = 0;
 		#10
 		FS = 5'b01100;
 		
 		
 		#10
 		FS = 5'b01110;
-		
+		BUS_A = 32'h00002008;
+		BUS_B = 32'h00000008;		
 		
 		#10
 		FS = 5'b00000;
@@ -137,7 +145,8 @@ initial
 		#10
 		FS = 5'b10001;
 		
-		
+		BUS_A = 32'h00FFF008;
+		BUS_B = 32'h00000008;	
 		#10
 		FS = 5'b00111;
 		
@@ -146,6 +155,7 @@ initial
 	
 always
 	begin
+		#5
 		CLOCK = ~CLOCK;
 	end
 	
